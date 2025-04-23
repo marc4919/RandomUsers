@@ -12,9 +12,11 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(users) { user in
-                UserCell(user: user)
-            }
-        }.navigationTitle("Random Users")
+                NavigationLink(destination: UserDetailView(user: user)) {
+                    UserCell(user: user)
+                }
+            }.navigationTitle(Text("Random Users"))
+        }
     }
 }
 

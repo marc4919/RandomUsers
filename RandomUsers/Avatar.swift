@@ -14,7 +14,6 @@ struct Avatar: View {
             image
                 .resizable()
                 .scaledToFit()
-                .frame(width: 50)
         } placeholder: {
             ProgressView()
         }

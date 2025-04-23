@@ -14,7 +14,7 @@ struct UserCell: View {
         HStack{
             Text(user.firstName)
             Spacer()
-            Avatar(image: user.avatar)
+            Avatar(image: user.avatar).frame(width: 80).clipShape(Circle())
         }
     }
 }

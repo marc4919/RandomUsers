@@ -39,7 +39,7 @@ func getUsers() -> [User] {
     do {
         let data = try Data(contentsOf: url)
         let response = try JSONDecoder().decode(UsersResponse.self, from: data)
-        return response.data
+        return response.data.shuffled()
     } catch {
         print(error)
         return []
