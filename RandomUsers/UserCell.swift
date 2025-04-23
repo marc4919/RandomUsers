@@ -12,9 +12,9 @@ struct UserCell: View {
     
     var body: some View {
         HStack{
-            Text(user.name.first)
+            Text(user.firstName)
             Spacer()
-            Avatar(image: user.picture.thumbnail)
+            Avatar(image: user.avatar)
         }
     }
 }

@@ -14,7 +14,7 @@ struct Avatar: View {
             image
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100)
+                .frame(width: 50)
         } placeholder: {
             ProgressView()
         }
@@ -22,5 +22,5 @@ struct Avatar: View {
 }
 
 #Preview {
-    Avatar(image: User.test.picture.thumbnail)
+    Avatar(image: User.test.avatar)
 }

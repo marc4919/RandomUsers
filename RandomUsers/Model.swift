@@ -8,42 +8,27 @@
 import Foundation
 
 struct UsersResponse: Codable {
-    let results: [User]
+    let data: [User]
 }
 
 struct User: Codable, Identifiable {
-    let id = UUID()
-    let name: Name
+    let id: Int
     let email: String
-    let picture: Picture
-    
+    let firstName: String
+    let lastName: String
+    let avatar: URL
+
     enum CodingKeys: String, CodingKey {
-        case name, email, picture
+        case id
+        case email
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case avatar
     }
 }
 
 extension User {
-    static let test = User(
-        name: Name(title: "Miss", first: "Elsa", last: "White"),
-        email: "elsa.white@example.com",
-        picture: Picture(
-            large: URL(string: "https://randomuser.me/api/portraits/women/46.jpg")!,
-            medium: URL(string: "https://randomuser.me/api/portraits/med/women/46.jpg")!,
-            thumbnail: URL(string: "https://randomuser.me/api/portraits/thumb/women/46.jpg")!
-        )
-    )
-}
-
-struct Name: Codable {
-    let title: String
-    let first: String
-    let last: String
-}
-
-struct Picture: Codable {
-    let large: URL
-    let medium: URL
-    let thumbnail: URL
+    static let test = User(id: 1, email: "george.bluth@reqres.in", firstName: "George", lastName: "Bluth", avatar: URL(string: "https://reqres.in/img/faces/1-image.jpg")!)
 }
 
 func getUsers() -> [User] {
@@ -54,7 +39,7 @@ func getUsers() -> [User] {
     do {
         let data = try Data(contentsOf: url)
         let response = try JSONDecoder().decode(UsersResponse.self, from: data)
-        return response.results
+        return response.data
     } catch {
         print(error)
         return []
