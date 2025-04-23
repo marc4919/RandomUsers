@@ -1,0 +1,68 @@
+{
+    "results": [
+        {
+            "gender": "male",
+            "name": {
+                "title": "Mr",
+                "first": "Kenan",
+                "last": "Çatalbaş"
+            },
+            "location": {
+                "street": {
+                    "number": 9960,
+                    "name": "Mevlana Cd"
+                },
+                "city": "Bartın",
+                "state": "Karabük",
+                "country": "Turkey",
+                "postcode": 80531,
+                "coordinates": {
+                    "latitude": "69.8010",
+                    "longitude": "-111.6641"
+                },
+                "timezone": {
+                    "offset": "-5:00",
+                    "description": "Eastern Time (US & Canada), Bogota, Lima"
+                }
+            },
+            "email": "kenan.catalbas@example.com",
+            "login": {
+                "uuid": "8e4feefc-0c17-486d-b98e-5db28ab8ab46",
+                "username": "orangetiger399",
+                "password": "megapass",
+                "salt": "cXeCHyZo",
+                "md5": "9400121ea21fe334e6eb2a8993230434",
+                "sha1": "61c38b6ecc25d6f8ca0cee650b59abcc1d7521a5",
+                "sha256":
+                    "a58bf9778bfe44dd65242e6e1c91fa50048cd769422ef013fecac86d1b0c3a6f"
+            },
+            "dob": {
+                "date": "1992-05-16T16:47:16.123Z",
+                "age": 32
+            },
+            "registered": {
+                "date": "2016-03-18T04:58:01.014Z",
+                "age": 9
+            },
+            "phone": "(567)-567-2493",
+            "cell": "(356)-733-7289",
+            "id": {
+                "name": "",
+                "value": null
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/men/17.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/men/17.jpg",
+                "thumbnail":
+                    "https://randomuser.me/api/portraits/thumb/men/17.jpg"
+            },
+            "nat": "TR"
+        },
+    ],
+    "info": {
+        "seed": "a3391ae3f7a5d4db",
+        "results": 20,
+        "page": 1,
+        "version": "1.4"
+    }
+}

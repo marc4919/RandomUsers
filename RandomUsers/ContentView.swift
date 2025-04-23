@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    let users = getUsers()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        NavigationStack {
+            List(users) { user in
+                UserCell(user: user)
+            }
+        }.navigationTitle("Random Users")
     }
 }
 
