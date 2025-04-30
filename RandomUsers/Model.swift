@@ -27,8 +27,12 @@ struct User: Codable, Identifiable {
     }
 }
 
-extension User {
+extension User: Hashable {
     static let test = User(id: 1, email: "george.bluth@reqres.in", firstName: "George", lastName: "Bluth", avatar: URL(string: "https://reqres.in/img/faces/1-image.jpg")!)
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 func getUsers() -> [User] {
