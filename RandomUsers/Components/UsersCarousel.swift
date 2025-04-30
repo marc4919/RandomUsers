@@ -9,15 +9,16 @@ import SwiftUI
 
 struct UsersCarousel: View {
     let users: [User]
-    var referenceUser: User? = nil
-
+    @Binding var referenceUser: User?
+    var isReferenceUserIncluded: Bool = false
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(users) { friend in
-                    if friend.id != referenceUser?.id {
-                        NavigationLink {
-                            UserDetailView(user: friend)
+                    if isReferenceUserIncluded || friend.id != referenceUser?.id {
+                        Button {
+                            referenceUser = friend
                         } label: {
                             CardMode(user: friend)
                         }.buttonStyle(.plain)
@@ -31,6 +32,6 @@ struct UsersCarousel: View {
 
 #Preview {
     let previewUsers = [User.test, User.test, User.test, User.test]
-    UsersCarousel(users: previewUsers)
+    UsersCarousel(users: previewUsers, referenceUser: .constant(.test), isReferenceUserIncluded: true)
 
 }

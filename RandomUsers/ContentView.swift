@@ -11,35 +11,42 @@ struct ContentView: View {
     let users = getUsers()
     
     @State private var searchText = ""
-    
-    var usersFiltered: [User] {
-        searchText.isEmpty
-            ? users
-            : users.filter { user in
-                user.firstName.localizedCaseInsensitiveContains(searchText)
-            }
-    }
-    
-    var body: some View {
-        NavigationSplitView {
-            List(usersFiltered) { user in
-                NavigationLink {
-                    UserDetailView(user: user)
-                } label: {
-                    UserCell(user: user)
+        @State private var selectedUser: User? = nil
+        
+        var usersFiltered: [User] {
+            searchText.isEmpty
+                ? users
+                : users.filter { user in
+                    user.firstName.localizedCaseInsensitiveContains(searchText)
                 }
-            }
-            .navigationTitle("Random Users")
-            .commonToolbar
-            .listStyle(.plain)
-        } detail: {
-            ContentUnavailableView(
-                "Select a user",
-                systemImage: "person.circle"
-            )
         }
-        .searchable(text: $searchText, prompt: "Search for a user")
-    }
+        
+        var body: some View {
+            NavigationSplitView(
+                sidebar: {
+                    List(usersFiltered, selection: $selectedUser) { user in
+                        NavigationLink(value: user) {
+                            UserCell(user: user)
+                        }
+                    }
+                    .navigationTitle("Random Users")
+                    .commonToolbar
+                    .listStyle(.plain)
+                },
+                detail: {
+                    if selectedUser != nil {
+                        UserDetailView(user: $selectedUser)
+                            
+                    } else {
+                        ContentUnavailableView(
+                            "Select a user",
+                            systemImage: "person.circle"
+                        )
+                    }
+                }
+            )
+            .searchable(text: $searchText, prompt: "Search for a user")
+        }
 }
 
 #Preview {
