@@ -25,7 +25,7 @@ struct UsersCarousel: View {
                     }
                 }
             }
-
+            
         }
     }
 }
@@ -33,5 +33,5 @@ struct UsersCarousel: View {
 #Preview {
     let previewUsers = [User.test, User.test, User.test, User.test]
     UsersCarousel(users: previewUsers, referenceUser: .constant(.test), isReferenceUserIncluded: true)
-
+    
 }

@@ -17,7 +17,7 @@ struct User: Codable, Identifiable {
     let firstName: String
     let lastName: String
     let avatar: URL
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case email
@@ -35,7 +35,7 @@ extension User: Hashable {
         lastName: "Bluth",
         avatar: URL(string: "https://reqres.in/img/faces/1-image.jpg")!
     )
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
@@ -46,7 +46,7 @@ func getUsers() -> [User] {
     else {
         return []
     }
-
+    
     do {
         let data = try Data(contentsOf: url)
         let response = try JSONDecoder().decode(UsersResponse.self, from: data)
