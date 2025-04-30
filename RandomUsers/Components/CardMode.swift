@@ -12,7 +12,7 @@ struct CardMode: View {
     @State var isLoading: Bool = true
     var body: some View {
         VStack {
-            Avatar(image: user.avatar).frame(maxWidth: .infinity)
+            Avatar(image: user.avatar, style: .square)
 
             Text(user.firstName)
                 .font(.largeTitle)

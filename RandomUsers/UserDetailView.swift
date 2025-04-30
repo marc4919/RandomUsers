@@ -12,8 +12,7 @@ struct UserDetailView: View {
     let users = getUsers()
     var body: some View {
         VStack {
-            Avatar(image: user.avatar)
-                .frame(width: 140).clipShape(Circle())
+            Avatar(image: user.avatar, style: .round, dimension: 140)
             Text("\( user.firstName) \(user.lastName)")
                 .font(.largeTitle)
                 .padding()
