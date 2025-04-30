@@ -9,9 +9,9 @@ import SwiftUI
 
 struct UserCell: View {
     var user: User
-    
+
     var body: some View {
-        HStack{
+        HStack {
             Text(user.firstName)
             Spacer()
             Avatar(image: user.avatar).frame(width: 80).clipShape(Circle())
@@ -22,5 +22,3 @@ struct UserCell: View {
 #Preview {
     UserCell(user: .test)
 }
-
-

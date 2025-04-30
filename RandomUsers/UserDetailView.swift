@@ -20,19 +20,20 @@ struct UserDetailView: View {
             Text(user.email)
                 .font(.headline)
                 .foregroundColor(.gray).padding(.bottom, 50)
-            
-            Text("Friends").frame(maxWidth: .infinity, alignment: .leading).font(.title).padding(.leading)
-                
-            
-            UsersCarousel(users: users, referenceUser: user).frame(height: 300).padding(.leading)
-                                
+
+            Text("Friends")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.title)
+                .padding(.leading)
+
+            UsersCarousel(users: users, referenceUser: user).frame(height: 300)
+                .padding(.leading)
+
         }
-        
+
     }
 }
 
 #Preview {
     UserDetailView(user: .test)
 }
-
-

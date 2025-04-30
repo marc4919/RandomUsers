@@ -28,18 +28,25 @@ struct User: Codable, Identifiable {
 }
 
 extension User: Hashable {
-    static let test = User(id: 1, email: "george.bluth@reqres.in", firstName: "George", lastName: "Bluth", avatar: URL(string: "https://reqres.in/img/faces/1-image.jpg")!)
-    
+    static let test = User(
+        id: 1,
+        email: "george.bluth@reqres.in",
+        firstName: "George",
+        lastName: "Bluth",
+        avatar: URL(string: "https://reqres.in/img/faces/1-image.jpg")!
+    )
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
 
 func getUsers() -> [User] {
-    guard let url = Bundle.main.url(forResource: "users", withExtension: "json") else {
+    guard let url = Bundle.main.url(forResource: "users", withExtension: "json")
+    else {
         return []
     }
-    
+
     do {
         let data = try Data(contentsOf: url)
         let response = try JSONDecoder().decode(UsersResponse.self, from: data)

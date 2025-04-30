@@ -10,7 +10,7 @@ import SwiftUI
 struct UsersCarousel: View {
     let users: [User]
     var referenceUser: User? = nil
-    
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
@@ -24,7 +24,7 @@ struct UsersCarousel: View {
                     }
                 }
             }
-            
+
         }
     }
 }
@@ -32,5 +32,5 @@ struct UsersCarousel: View {
 #Preview {
     let previewUsers = [User.test, User.test, User.test, User.test]
     UsersCarousel(users: previewUsers)
-        
+
 }

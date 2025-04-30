@@ -22,7 +22,10 @@ struct ContentView: View {
             .commonToolbar
             .listStyle(.plain)
         } detail: {
-            ContentUnavailableView("Select a user", systemImage: "person.circle")
+            ContentUnavailableView(
+                "Select a user",
+                systemImage: "person.circle"
+            )
         }
     }
 }
@@ -30,4 +33,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
