@@ -18,7 +18,7 @@ struct ContentView: View {
             }
             .navigationTitle("Random Users")
         } detail: {
-            Text("Selecciona un usuario")
+            ContentUnavailableView("Select a user", systemImage: "person.circle")
         }
     }
 }
