@@ -10,27 +10,23 @@ import SwiftUI
 struct CardMode: View {
     let user: User
     @State var isLoading: Bool = true
+    
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Avatar(image: user.avatar, style: .square)
 
-            Text(user.firstName)
-                .font(.largeTitle)
-                .frame(maxWidth: .infinity).padding(.top, 5)
-                .overlay(
-                    Rectangle()
-                        .frame(height: 5)
-                        .foregroundColor(.gray)
-                        .offset(y: -8),
-                    alignment: .top
-                )
-            Text(user.email)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-        }.padding(.bottom, 30)
-            .border(Color.gray, width: 3)
-            .cornerRadius(5)
-            .frame(maxWidth: 180)
+            VStack {
+                Text(user.firstName)
+                    .font(.largeTitle)
+                    .frame(maxWidth: .infinity).padding(.top, 5)
+
+                Text(user.email)
+                    .font(.subheadline)
+            }.padding(.bottom, 15).background(Color(.systemGray6))
+
+        }
+        .cornerRadius(5)
+        .frame(maxWidth: 180)
 
     }
 }
