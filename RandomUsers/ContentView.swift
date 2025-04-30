@@ -10,12 +10,15 @@ import SwiftUI
 struct ContentView: View {
     let users = getUsers()
     var body: some View {
-        NavigationStack {
+        NavigationSplitView {
             List(users) { user in
                 NavigationLink(destination: UserDetailView(user: user)) {
                     UserCell(user: user)
                 }
-            }.navigationTitle(Text("Random Users"))
+            }
+            .navigationTitle("Random Users")
+        } detail: {
+            Text("Selecciona un usuario")
         }
     }
 }
@@ -23,3 +26,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
