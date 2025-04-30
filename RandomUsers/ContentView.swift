@@ -19,6 +19,8 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Random Users")
+            .commonToolbar
+            .listStyle(.plain)
         } detail: {
             ContentUnavailableView("Select a user", systemImage: "person.circle")
         }
