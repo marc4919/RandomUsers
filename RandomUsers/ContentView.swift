@@ -9,9 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     let users = getUsers()
+    
+    @State private var searchText = ""
+    
+    var usersFiltered: [User] {
+        searchText.isEmpty
+            ? users
+            : users.filter { user in
+                user.firstName.localizedCaseInsensitiveContains(searchText)
+            }
+    }
+    
     var body: some View {
         NavigationSplitView {
-            List(users) { user in
+            List(usersFiltered) { user in
                 NavigationLink {
                     UserDetailView(user: user)
                 } label: {
@@ -27,6 +38,7 @@ struct ContentView: View {
                 systemImage: "person.circle"
             )
         }
+        .searchable(text: $searchText, prompt: "Search for a user")
     }
 }
 
