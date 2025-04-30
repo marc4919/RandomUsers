@@ -16,7 +16,9 @@ struct UsersCarousel: View {
             HStack {
                 ForEach(users) { friend in
                     if friend.id != referenceUser?.id {
-                        NavigationLink(destination: UserDetailView(user: friend)) {
+                        NavigationLink {
+                            UserDetailView(user: friend)
+                        } label: {
                             CardModeView(user: friend)
                         }.buttonStyle(.plain)
                     }

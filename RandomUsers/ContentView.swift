@@ -12,7 +12,9 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             List(users) { user in
-                NavigationLink(destination: UserDetailView(user: user)) {
+                NavigationLink {
+                    UserDetailView(user: user)
+                } label: {
                     UserCell(user: user)
                 }
             }
