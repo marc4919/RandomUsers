@@ -19,7 +19,7 @@ struct UsersCarousel: View {
                         NavigationLink {
                             UserDetailView(user: friend)
                         } label: {
-                            CardModeView(user: friend)
+                            CardMode(user: friend)
                         }.buttonStyle(.plain)
                     }
                 }

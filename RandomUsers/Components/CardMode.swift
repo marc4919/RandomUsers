@@ -1,5 +1,5 @@
 //
-//  CardModeView.swift
+//  CardMode.swift
 //  RandomUsers
 //
 //  Created by Marc Garcia Teodoro on 23/4/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardModeView: View {
+struct CardMode: View {
     let user: User
     @State var isLoading: Bool = true
     var body: some View {
@@ -35,5 +35,5 @@ struct CardModeView: View {
 }
 
 #Preview {
-    CardModeView(user: .test)
+    CardMode(user: .test)
 }
