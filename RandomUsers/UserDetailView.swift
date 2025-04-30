@@ -24,20 +24,8 @@ struct UserDetailView: View {
             Text("Friends").frame(maxWidth: .infinity, alignment: .leading).font(.title).padding(.leading)
                 
             
-            ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(users) { friend in
-                            if friend.id != user.id {
-                                NavigationLink(destination: UserDetailView(user: friend)) {
-                                    CardModeView(user: friend)
-                                }.buttonStyle(.plain)
-                            }
-                        }
-                }
-                
-            }.frame(height: 300).padding(.leading)
-                
-                
+            UsersCarousel(users: users, referenceUser: user).frame(height: 300).padding(.leading)
+                                
         }
         
     }
@@ -46,3 +34,5 @@ struct UserDetailView: View {
 #Preview {
     UserDetailView(user: .test)
 }
+
+
