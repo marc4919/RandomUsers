@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ToolbarModifiers: ViewModifier {
+    
+    @State var showScreenCover: Bool = false
+    
     func body(content: Content) -> some View {
         content
             .toolbar {
@@ -17,6 +20,16 @@ struct ToolbarModifiers: ViewModifier {
                     } label: {
                         Text("Order")
                     }
+                    
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showScreenCover = true
+                    } label: {
+                        Text("Randomized")
+                    }.fullScreenCover(isPresented: $showScreenCover, content: {
+                        RandomizerView()
+                    })
                     
                 }
             }
