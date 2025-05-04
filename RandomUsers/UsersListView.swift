@@ -1,0 +1,54 @@
+//
+//  UsersListView.swift
+//  RandomUsers
+//
+//  Created by Marc Garcia Teodoro on 4/5/25.
+//
+
+import SwiftUI
+
+struct UsersListView: View {
+    let users = getUsers()
+    
+    @State private var searchText = ""
+    @State private var selectedUser: User? = nil
+    
+    var usersFiltered: [User] {
+        searchText.isEmpty
+        ? users
+        : users.filter { user in
+            user.firstName.localizedCaseInsensitiveContains(searchText)
+        }
+    }
+    
+    var body: some View {
+        NavigationSplitView(
+            sidebar: {
+                List(usersFiltered, selection: $selectedUser) { user in
+                    NavigationLink(value: user) {
+                        UserCell(user: user)
+                    }
+                }
+                .navigationTitle("Random Users")
+                .commonToolbar
+                .listStyle(.plain)
+            },
+            detail: {
+                if selectedUser != nil {
+                    UserDetailView(user: $selectedUser)
+                    
+                } else {
+                    ContentUnavailableView(
+                        "Select a user",
+                        systemImage: "person.circle"
+                    )
+                }
+            }
+        )
+        .searchable(text: $searchText, prompt: "Search for a user")
+    }
+}
+
+#Preview {
+    UsersListView()
+}

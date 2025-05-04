@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8A403132DC8001F00435323 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403122DC8001F00435323 /* UsersListView.swift */; };
 		D8A4033A2DC24FD1009735E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8A4032E2DC24FD1009735E5 /* Assets.xcassets */; };
 		D8A4033B2DC24FD1009735E5 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = D8A403372DC24FD1009735E5 /* users.json */; };
 		D8A4033C2DC24FD1009735E5 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A4032F2DC24FD1009735E5 /* Avatar.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		D89584DD2DB8E92F00F03AEB /* RandomUsers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUsers.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8A403122DC8001F00435323 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		D8A4032E2DC24FD1009735E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8A4032F2DC24FD1009735E5 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		D8A403302DC24FD1009735E5 /* CardMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMode.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				D8A403362DC24FD1009735E5 /* UserDetailView.swift */,
 				D8A403372DC24FD1009735E5 /* users.json */,
 				D8A403462DC3903C009735E5 /* RandomizerView.swift */,
+				D8A403122DC8001F00435323 /* UsersListView.swift */,
 			);
 			path = RandomUsers;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				D8A403402DC24FD1009735E5 /* RandomUsersApp.swift in Sources */,
 				D8A403412DC24FD1009735E5 /* ToolbarModifiers.swift in Sources */,
 				D8A403422DC24FD1009735E5 /* UserCell.swift in Sources */,
+				D8A403132DC8001F00435323 /* UsersListView.swift in Sources */,
 				D8A403432DC24FD1009735E5 /* UserDetailView.swift in Sources */,
 				D8A403442DC24FD1009735E5 /* UsersCarousel.swift in Sources */,
 				D8A403472DC3903C009735E5 /* RandomizerView.swift in Sources */,
