@@ -9,16 +9,25 @@ import SwiftUI
 
 struct ToolbarModifiers: ViewModifier {
 
-    @State var showScreenCover: Bool = false
+    @State var showAddSheet: Bool = false
 
     func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        print("Hi")
+                        print("Ordering...")
                     } label: {
                         Text("Order")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showAddSheet.toggle()
+                    } label: {
+                        Text("Add")
+                    }.sheet(isPresented: $showAddSheet) {
+                        CreateUserView()
                     }
                 }
             }
