@@ -20,7 +20,7 @@ struct RandomizerView: View {
             if showDetail {
                 UserDetailView(user: $user)
                     .transition(.scale)
-                
+                    .animation(.easeInOut, value: showDetail)
             } else {
                 ZStack {
                     ForEach(0..<12, id: \.self) { i in
@@ -44,21 +44,32 @@ struct RandomizerView: View {
                     Avatar(image: users[currentIndex].avatar, dimension: 100)
                 }
                 .frame(width: 200, height: 200)
-                .task {
-                    show = true
-                    for i in 0..<users.count {
-                        try? await Task.sleep(nanoseconds: 400_000_000)
-                        currentIndex = i
-                    }
-                    try? await Task.sleep(nanoseconds: 1_000_000_000)
-                    user = users[currentIndex]
-                    withAnimation {
-                        showDetail = true
-                    }
-                }
             }
         }
-        .animation(.easeInOut, value: showDetail)
+        .onAppear{
+            randomizeUser()
+        }
+        .onDisappear {
+            showDetail = false
+            show = false
+        }
+        
+    }
+    
+    func randomizeUser() {
+        print("Randomizing user...")
+        Task {
+            show = true
+            for i in 0..<users.count {
+                try? await Task.sleep(nanoseconds: 400_000_000)
+                currentIndex = i
+            }
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            user = users[currentIndex]
+            withAnimation {
+                showDetail = true
+            }
+        }
     }
 }
 
