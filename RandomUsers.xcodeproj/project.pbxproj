@@ -14,13 +14,17 @@
 		D8A4033C2DC24FD1009735E5 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A4032F2DC24FD1009735E5 /* Avatar.swift */; };
 		D8A4033D2DC24FD1009735E5 /* CardMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403302DC24FD1009735E5 /* CardMode.swift */; };
 		D8A4033E2DC24FD1009735E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403312DC24FD1009735E5 /* ContentView.swift */; };
-		D8A4033F2DC24FD1009735E5 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403322DC24FD1009735E5 /* Model.swift */; };
+		D8A4033F2DC24FD1009735E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403322DC24FD1009735E5 /* User.swift */; };
 		D8A403402DC24FD1009735E5 /* RandomUsersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403332DC24FD1009735E5 /* RandomUsersApp.swift */; };
 		D8A403412DC24FD1009735E5 /* ToolbarModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403342DC24FD1009735E5 /* ToolbarModifiers.swift */; };
 		D8A403422DC24FD1009735E5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403352DC24FD1009735E5 /* UserCell.swift */; };
 		D8A403432DC24FD1009735E5 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403362DC24FD1009735E5 /* UserDetailView.swift */; };
 		D8A403442DC24FD1009735E5 /* UsersCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403382DC24FD1009735E5 /* UsersCarousel.swift */; };
 		D8A403472DC3903C009735E5 /* RandomizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403462DC3903C009735E5 /* RandomizerView.swift */; };
+		D8A4034C2DCFB04C009735E5 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A4034B2DCFB04C009735E5 /* UserDTO.swift */; };
+		D8A4034F2DCFB10D009735E5 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A4034E2DCFB10D009735E5 /* DataRepository.swift */; };
+		D8A403512DCFB220009735E5 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403502DCFB220009735E5 /* JSONLoader.swift */; };
+		D8A403542DCFFE82009735E5 /* UsersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A403532DCFFE82009735E5 /* UsersVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +35,7 @@
 		D8A4032F2DC24FD1009735E5 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		D8A403302DC24FD1009735E5 /* CardMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMode.swift; sourceTree = "<group>"; };
 		D8A403312DC24FD1009735E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D8A403322DC24FD1009735E5 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D8A403322DC24FD1009735E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D8A403332DC24FD1009735E5 /* RandomUsersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersApp.swift; sourceTree = "<group>"; };
 		D8A403342DC24FD1009735E5 /* ToolbarModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarModifiers.swift; sourceTree = "<group>"; };
 		D8A403352DC24FD1009735E5 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -39,6 +43,10 @@
 		D8A403372DC24FD1009735E5 /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		D8A403382DC24FD1009735E5 /* UsersCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCarousel.swift; sourceTree = "<group>"; };
 		D8A403462DC3903C009735E5 /* RandomizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomizerView.swift; sourceTree = "<group>"; };
+		D8A4034B2DCFB04C009735E5 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		D8A4034E2DCFB10D009735E5 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
+		D8A403502DCFB220009735E5 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		D8A403532DCFFE82009735E5 /* UsersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,17 +79,19 @@
 		D8A403392DC24FD1009735E5 /* RandomUsers */ = {
 			isa = PBXGroup;
 			children = (
-				D8A403452DC24FD5009735E5 /* Components */,
 				D8A4032E2DC24FD1009735E5 /* Assets.xcassets */,
-				D8A403312DC24FD1009735E5 /* ContentView.swift */,
-				D8A403322DC24FD1009735E5 /* Model.swift */,
-				D8A403332DC24FD1009735E5 /* RandomUsersApp.swift */,
-				D8A403342DC24FD1009735E5 /* ToolbarModifiers.swift */,
+				D8A403522DCFFE59009735E5 /* ViewModels */,
+				D8A4034D2DCFB0FA009735E5 /* Repository */,
+				D8A403482DCFAFE1009735E5 /* Model */,
+				D8DD5D8B2DD01B4F00B4EF87 /* Resources */,
+				D8DD5D8A2DD01B1D00B4EF87 /* Modifiers */,
+				D8A403452DC24FD5009735E5 /* Components */,
+				D8A403142DCE6F9A00435323 /* CreateUserView.swift */,
 				D8A403362DC24FD1009735E5 /* UserDetailView.swift */,
-				D8A403372DC24FD1009735E5 /* users.json */,
 				D8A403462DC3903C009735E5 /* RandomizerView.swift */,
 				D8A403122DC8001F00435323 /* UsersListView.swift */,
-				D8A403142DCE6F9A00435323 /* CreateUserView.swift */,
+				D8A403312DC24FD1009735E5 /* ContentView.swift */,
+				D8A403332DC24FD1009735E5 /* RandomUsersApp.swift */,
 			);
 			path = RandomUsers;
 			sourceTree = "<group>";
@@ -95,6 +105,48 @@
 				D8A403352DC24FD1009735E5 /* UserCell.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		D8A403482DCFAFE1009735E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8A403322DC24FD1009735E5 /* User.swift */,
+				D8A4034B2DCFB04C009735E5 /* UserDTO.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8A4034D2DCFB0FA009735E5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D8A4034E2DCFB10D009735E5 /* DataRepository.swift */,
+				D8A403502DCFB220009735E5 /* JSONLoader.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D8A403522DCFFE59009735E5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D8A403532DCFFE82009735E5 /* UsersVM.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D8DD5D8A2DD01B1D00B4EF87 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D8A403342DC24FD1009735E5 /* ToolbarModifiers.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		D8DD5D8B2DD01B4F00B4EF87 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8A403372DC24FD1009735E5 /* users.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +226,13 @@
 				D8A403152DCE6F9A00435323 /* CreateUserView.swift in Sources */,
 				D8A4033D2DC24FD1009735E5 /* CardMode.swift in Sources */,
 				D8A4033E2DC24FD1009735E5 /* ContentView.swift in Sources */,
-				D8A4033F2DC24FD1009735E5 /* Model.swift in Sources */,
+				D8A4033F2DC24FD1009735E5 /* User.swift in Sources */,
 				D8A403402DC24FD1009735E5 /* RandomUsersApp.swift in Sources */,
+				D8A403542DCFFE82009735E5 /* UsersVM.swift in Sources */,
 				D8A403412DC24FD1009735E5 /* ToolbarModifiers.swift in Sources */,
+				D8A403512DCFB220009735E5 /* JSONLoader.swift in Sources */,
+				D8A4034F2DCFB10D009735E5 /* DataRepository.swift in Sources */,
+				D8A4034C2DCFB04C009735E5 /* UserDTO.swift in Sources */,
 				D8A403422DC24FD1009735E5 /* UserCell.swift in Sources */,
 				D8A403132DC8001F00435323 /* UsersListView.swift in Sources */,
 				D8A403432DC24FD1009735E5 /* UserDetailView.swift in Sources */,
