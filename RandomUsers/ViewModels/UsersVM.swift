@@ -12,7 +12,18 @@ import Observation
 final class UsersVM {
     private let repository: DataRepository
 
+        
     var users: [User] = []
+    
+    var searchText = ""
+    
+    var usersFiltered: [User] {
+        searchText.isEmpty
+            ? users
+            : users.filter { user in
+                user.firstName.localizedCaseInsensitiveContains(searchText)
+            }
+    }
 
     init(repository: DataRepository = Repository()) {
         self.repository = repository

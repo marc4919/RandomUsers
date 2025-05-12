@@ -8,23 +8,15 @@
 import SwiftUI
 
 struct UsersListView: View {
-    @Environment(UsersVM.self) private var vm
+    @Environment(UsersVM.self) var vm
 
-    @State private var searchText = ""
     @State private var selectedUser: User? = nil
 
-    var usersFiltered: [User] {
-        searchText.isEmpty
-            ? vm.users
-            : vm.users.filter { user in
-                user.firstName.localizedCaseInsensitiveContains(searchText)
-            }
-    }
-
     var body: some View {
+        @Bindable var vm = vm
         NavigationSplitView(
             sidebar: {
-                List(usersFiltered, selection: $selectedUser) { user in
+                List(vm.usersFiltered, selection: $selectedUser) { user in
                     NavigationLink(value: user) {
                         UserCell(user: user)
                     }
@@ -45,7 +37,7 @@ struct UsersListView: View {
                 }
             }
         )
-        .searchable(text: $searchText, prompt: "Search for a user")
+        .searchable(text: $vm.searchText, prompt: "Search for a user")
     }
 }
 

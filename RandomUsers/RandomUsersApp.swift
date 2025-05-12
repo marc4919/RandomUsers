@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct RandomUsersApp: App {
-    private let vm = UsersVM()
+    @State private var vm = UsersVM()
 
     var body: some Scene {
         WindowGroup {
