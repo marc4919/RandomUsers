@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct UsersListView: View {
-    let users = getUsers()
+    @Environment(UsersVM.self) private var vm
     
     @State private var searchText = ""
     @State private var selectedUser: User? = nil
     
     var usersFiltered: [User] {
         searchText.isEmpty
-        ? users
-        : users.filter { user in
+        ? vm.users
+        : vm.users.filter { user in
             user.firstName.localizedCaseInsensitiveContains(searchText)
         }
     }
@@ -51,4 +51,5 @@ struct UsersListView: View {
 
 #Preview {
     UsersListView()
+        .environment(UsersVM())
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         TabView {
             Tab("Randomizer", systemImage: "person.fill.questionmark") {
@@ -19,9 +20,11 @@ struct ContentView: View {
                 UsersListView()
             }
         }
+
     }
 }
 
 #Preview {
     ContentView()
+        .environment(UsersVM())
 }

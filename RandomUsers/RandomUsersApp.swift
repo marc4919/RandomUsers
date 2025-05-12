@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RandomUsersApp: App {
+    private let vm = UsersVM()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(vm)
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserDetailView: View {
     @Binding var user: User?
-    let users = getUsers()
+    @Environment(UsersVM.self) private var vm
     var body: some View {
         VStack {
             if let user {
@@ -27,7 +27,7 @@ struct UserDetailView: View {
                     .font(.title)
                     .padding(.leading)
                 
-                UsersCarousel(users: users, referenceUser: $user).frame(height: 300)
+                UsersCarousel(users: vm.users, referenceUser: $user).frame(height: 300)
                     .padding(.leading)
             }
         }
@@ -37,4 +37,5 @@ struct UserDetailView: View {
 
 #Preview {
     UserDetailView(user: .constant(.test))
+        .environment(UsersVM())
 }

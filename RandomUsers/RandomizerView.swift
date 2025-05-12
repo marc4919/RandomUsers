@@ -13,7 +13,7 @@ struct RandomizerView: View {
     @State private var showDetail = false
     @State private var user: User?
     
-    let users = getUsers()
+    @Environment(UsersVM.self) private var vm
 
     var body: some View {
         ZStack {
@@ -41,7 +41,7 @@ struct RandomizerView: View {
                             )
                     }
                     
-                    Avatar(image: users[currentIndex].avatar, dimension: 100)
+                    Avatar(image: vm.users[currentIndex].avatar, dimension: 100)
                 }
                 .frame(width: 200, height: 200)
             }
@@ -60,12 +60,12 @@ struct RandomizerView: View {
         print("Randomizing user...")
         Task {
             show = true
-            for i in 0..<users.count {
+            for i in 0..<vm.users.count {
                 try? await Task.sleep(nanoseconds: 400_000_000)
                 currentIndex = i
             }
             try? await Task.sleep(nanoseconds: 1_000_000_000)
-            user = users[currentIndex]
+            user = vm.users[currentIndex]
             withAnimation {
                 showDetail = true
             }
@@ -75,4 +75,5 @@ struct RandomizerView: View {
 
 #Preview {
     RandomizerView()
+        .environment(UsersVM())
 }
