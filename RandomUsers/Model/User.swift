@@ -23,9 +23,8 @@ extension User: Hashable {
         lastName: "Bluth",
         avatar: URL(string: "https://reqres.in/img/faces/1-image.jpg")!
     )
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
-

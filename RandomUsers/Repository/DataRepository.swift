@@ -11,16 +11,18 @@ struct Repository: DataRepository {}
 
 protocol DataRepository: JSONLoader, Sendable {
     var url: URL { get }
-    
+
     func getUsers() throws -> [User]
 }
 
 extension DataRepository {
     var url: URL {
-        Bundle.main.url(forResource: "users",
-                        withExtension: "json")!
+        Bundle.main.url(
+            forResource: "users",
+            withExtension: "json"
+        )!
     }
-    
+
     func getUsers() throws -> [User] {
         try load(url: url, type: RandomizerDTO.self).data.map(\.toUser)
     }

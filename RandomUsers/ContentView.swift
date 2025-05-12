@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+
     var body: some View {
         TabView {
             Tab("Randomizer", systemImage: "person.fill.questionmark") {
                 RandomizerView()
             }
-            
-            
+
             Tab("Users", systemImage: "person.3.fill") {
                 UsersListView()
             }

@@ -11,12 +11,13 @@ struct UsersCarousel: View {
     let users: [User]
     @Binding var referenceUser: User?
     var isReferenceUserIncluded: Bool = false
-    
+
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(users) { friend in
-                    if isReferenceUserIncluded || friend.id != referenceUser?.id {
+                    if isReferenceUserIncluded || friend.id != referenceUser?.id
+                    {
                         Button {
                             referenceUser = friend
                         } label: {
@@ -25,13 +26,17 @@ struct UsersCarousel: View {
                     }
                 }
             }
-            
+
         }
     }
 }
 
 #Preview {
     let previewUsers = [User.test, User.test, User.test, User.test]
-    UsersCarousel(users: previewUsers, referenceUser: .constant(.test), isReferenceUserIncluded: true)
-    
+    UsersCarousel(
+        users: previewUsers,
+        referenceUser: .constant(.test),
+        isReferenceUserIncluded: true
+    )
+
 }

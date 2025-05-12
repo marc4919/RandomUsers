@@ -9,18 +9,18 @@ import SwiftUI
 
 struct UsersListView: View {
     @Environment(UsersVM.self) private var vm
-    
+
     @State private var searchText = ""
     @State private var selectedUser: User? = nil
-    
+
     var usersFiltered: [User] {
         searchText.isEmpty
-        ? vm.users
-        : vm.users.filter { user in
-            user.firstName.localizedCaseInsensitiveContains(searchText)
-        }
+            ? vm.users
+            : vm.users.filter { user in
+                user.firstName.localizedCaseInsensitiveContains(searchText)
+            }
     }
-    
+
     var body: some View {
         NavigationSplitView(
             sidebar: {
@@ -36,7 +36,7 @@ struct UsersListView: View {
             detail: {
                 if selectedUser != nil {
                     UserDetailView(user: $selectedUser)
-                    
+
                 } else {
                     ContentUnavailableView(
                         "Select a user",

@@ -11,12 +11,12 @@ import Observation
 @Observable
 final class UsersVM {
     private let repository: DataRepository
-    
+
     var users: [User] = []
-    
+
     init(repository: DataRepository = Repository()) {
         self.repository = repository
-        do{
+        do {
             self.users = try repository.getUsers()
         } catch {
             self.users = []

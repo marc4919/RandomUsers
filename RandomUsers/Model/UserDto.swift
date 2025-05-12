@@ -17,7 +17,7 @@ struct UserDTO: Codable {
     let first_name: String
     let last_name: String
     let avatar: URL
-    
+
     var toUser: User {
         User(
             id: id,

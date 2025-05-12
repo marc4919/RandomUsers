@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-import Foundation
-
 protocol JSONLoader {}
 
 extension JSONLoader {

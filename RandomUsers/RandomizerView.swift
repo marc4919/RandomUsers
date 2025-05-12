@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct RandomizerView: View {
+    @Environment(UsersVM.self) private var vm
+
     @State private var show = false
     @State private var currentIndex = 0
     @State private var showDetail = false
     @State private var user: User?
-    
-    @Environment(UsersVM.self) private var vm
 
     var body: some View {
         ZStack {
@@ -26,7 +26,7 @@ struct RandomizerView: View {
                     ForEach(0..<12, id: \.self) { i in
                         let angle = Angle(degrees: Double(i) * 30 - 90)
                         let radius: CGFloat = 60
-                        
+
                         Image(systemName: "questionmark.circle")
                             .scaleEffect(show ? 1 : 0.1)
                             .opacity(show ? 1 : 0)
@@ -40,22 +40,22 @@ struct RandomizerView: View {
                                 value: show
                             )
                     }
-                    
+
                     Avatar(image: vm.users[currentIndex].avatar, dimension: 100)
                 }
                 .frame(width: 200, height: 200)
             }
         }
-        .onAppear{
+        .onAppear {
             randomizeUser()
         }
         .onDisappear {
             showDetail = false
             show = false
         }
-        
+
     }
-    
+
     func randomizeUser() {
         print("Randomizing user...")
         Task {
