@@ -37,6 +37,6 @@ final class UsersVM {
     
     func createUser(firstName: String, lastName: String, email: String){
         let newUser = User(email: email, firstName: firstName, lastName: lastName, avatar: nil)
-        users.append(newUser)
+        users.insert(newUser, at: 0)
     }
 }
