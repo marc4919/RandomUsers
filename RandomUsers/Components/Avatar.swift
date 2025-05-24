@@ -27,7 +27,9 @@ struct Avatar: View {
     }
 
     var squareAvatar: some View {
-        defaultAvatar.frame(maxWidth: .infinity)
+        defaultAvatar
+            .frame(maxWidth: .infinity)
+            .aspectRatio(1, contentMode: .fit)
     }
 
     var roundAvatar: some View {
@@ -37,16 +39,57 @@ struct Avatar: View {
     }
 
     var defaultAvatar: some View {
-        AsyncImage(url: image) { image in
-            image
-                .resizable()
-                .scaledToFit()
-        } placeholder: {
-            ProgressView()
+        Group {
+            if let validURL = image {
+                AsyncImage(url: validURL) { phase in
+                    switch phase {
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFit()
+                    case .failure(_):
+                        fallbackImage
+                    case .empty:
+                        ProgressView()
+                    @unknown default:
+                        fallbackImage
+                    }
+                }
+            } else {
+                fallbackImage
+            }
+        }
+    }
+    
+    private var fallbackImage: some View {
+        Group {
+            switch style {
+            case .square:
+                RoundedRectangle(cornerRadius: 0)
+                    .fill(Color.gray.opacity(0.3))
+                    .overlay(
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.gray)
+                            .font(.system(size: dimension * 1.4))
+                    )
+                    
+            case .round:
+                Image(systemName: "person.circle.fill")
+                    .foregroundColor(.gray)
+                    .font(.system(size: dimension))
+            }
         }
     }
 }
 
 #Preview {
-    Avatar(image: User.test.avatar)
+    VStack(spacing: 20) {
+        Avatar(image: nil, style: .round, dimension: 80)
+        
+        Avatar(image: nil, style: .square, dimension: 80)
+        
+        Avatar(image: User.test.avatar, style: .round, dimension: 80)
+        Avatar(image: User.test.avatar, style: .square, dimension: 80)
+    }
+    .padding()
 }
