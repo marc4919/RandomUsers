@@ -18,8 +18,15 @@ struct CreateUserView: View {
             Form {
                 Section("New User Details") {
                     TextField("First Name", text: $firstName)
+                        .autocorrectionDisabled()
+
                     TextField("Last Name", text: $lastName)
+                        .autocorrectionDisabled()
+
                     TextField("Email", text: $email)
+                        .textInputAutocapitalization(.never)
+                        .keyboardType(.emailAddress)
+                        .autocorrectionDisabled()
                 }
                 Section {
                     Button {
