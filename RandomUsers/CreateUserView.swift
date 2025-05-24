@@ -10,11 +10,21 @@ import SwiftUI
 struct CreateUserView: View {
     var body: some View {
         Form {
-            Section("User Details") {
+            Section("New User Details") {
                 TextField("First Name", text: .constant(""))
                 TextField("Last Name", text: .constant(""))
                 TextField("Email", text: .constant(""))
             }
+            Section {
+                Button {
+                    print("Create User")
+                } label: {
+                    Text("Create User")
+                        .frame(maxWidth: .infinity)                        
+                }
+            }
+            
+
         }
     }
 }
