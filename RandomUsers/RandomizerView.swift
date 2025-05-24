@@ -10,9 +10,9 @@ import SwiftUI
 struct RandomizerView: View {
     @Environment(UsersVM.self) private var vm
 
-    @State private var show = false
     @State private var currentIndex = 0
     @State private var showDetail = false
+    @State private var showAvatar = false
     @State private var user: User?
 
     var body: some View {
@@ -28,8 +28,8 @@ struct RandomizerView: View {
                         let radius: CGFloat = 60
 
                         Image(systemName: "questionmark.circle")
-                            .scaleEffect(show ? 1 : 0.1)
-                            .opacity(show ? 1 : 0)
+                            .scaleEffect(showAvatar ? 1 : 0.1)
+                            .opacity(showAvatar ? 1 : 0)
                             .offset(
                                 x: radius * cos(angle.radians),
                                 y: radius * sin(angle.radians)
@@ -37,7 +37,7 @@ struct RandomizerView: View {
                             .animation(
                                 .easeOut(duration: 0.4)
                                     .delay(Double(i) * 0.2),
-                                value: show
+                                value: showAvatar
                             )
                     }
 
@@ -51,7 +51,7 @@ struct RandomizerView: View {
         }
         .onDisappear {
             showDetail = false
-            show = false
+            showAvatar = false
         }
 
     }
@@ -59,7 +59,7 @@ struct RandomizerView: View {
     func randomizeUser() {
         print("Randomizing user...")
         Task {
-            show = true
+            showAvatar = true
             for i in 0..<vm.users.count {
                 try? await Task.sleep(nanoseconds: 400_000_000)
                 currentIndex = i
