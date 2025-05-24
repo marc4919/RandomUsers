@@ -34,4 +34,9 @@ final class UsersVM {
             print(error)
         }
     }
+    
+    func createUser(firstName: String, lastName: String, email: String){
+        let newUser = User(email: email, firstName: firstName, lastName: lastName, avatar: nil)
+        users.append(newUser)
+    }
 }

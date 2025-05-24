@@ -8,16 +8,29 @@
 import Foundation
 
 struct User: Codable, Identifiable {
-    let id: Int
+    let id = UUID()
     let email: String
     let firstName: String
     let lastName: String
-    let avatar: URL
+    let avatar: URL?
+    
+    init(email: String, firstName: String, lastName: String, avatar: URL? = nil) {
+        self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
+        self.avatar = avatar
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case email
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case avatar
+    }
 }
 
 extension User: Hashable {
     static let test = User(
-        id: 1,
         email: "george.bluth@reqres.in",
         firstName: "George",
         lastName: "Bluth",

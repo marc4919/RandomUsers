@@ -13,7 +13,7 @@ enum AvatarStyle {
 }
 
 struct Avatar: View {
-    var image: URL
+    var image: URL?
     var style: AvatarStyle = .round
     var dimension: CGFloat = 80
 

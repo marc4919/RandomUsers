@@ -12,7 +12,6 @@ struct RandomizerDTO: Codable {
 }
 
 struct UserDTO: Codable {
-    let id: Int
     let email: String
     let first_name: String
     let last_name: String
@@ -20,7 +19,6 @@ struct UserDTO: Codable {
 
     var toUser: User {
         User(
-            id: id,
             email: email,
             firstName: first_name,
             lastName: last_name,

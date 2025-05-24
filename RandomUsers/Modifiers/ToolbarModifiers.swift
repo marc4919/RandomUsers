@@ -28,6 +28,8 @@ struct ToolbarModifiers: ViewModifier {
                         Text("Add")
                     }.sheet(isPresented: $showAddSheet) {
                         CreateUserView()
+                            .presentationDetents([.medium])
+                            .presentationDragIndicator(.visible)
                     }
                 }
             }
