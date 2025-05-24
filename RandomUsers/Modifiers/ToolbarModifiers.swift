@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ToolbarModifiers: ViewModifier {
 
-    @State var showAddSheet: Bool = false
+    @State var showCreateSheet: Bool = false
 
     func body(content: Content) -> some View {
         content
@@ -23,11 +23,11 @@ struct ToolbarModifiers: ViewModifier {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showAddSheet.toggle()
+                        showCreateSheet.toggle()
                     } label: {
                         Text("Add")
-                    }.sheet(isPresented: $showAddSheet) {
-                        CreateUserView()
+                    }.sheet(isPresented: $showCreateSheet) {
+                        CreateUserView(isThisViewShown: $showCreateSheet)
                             .presentationDetents([.medium])
                             .presentationDragIndicator(.visible)
                     }

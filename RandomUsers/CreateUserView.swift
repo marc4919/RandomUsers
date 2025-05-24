@@ -12,11 +12,11 @@ struct CreateUserView: View {
     @State private var firstName: String = ""
     @State private var lastName: String = ""
     @State private var email: String = ""
+    @Binding var isThisViewShown: Bool
 
     var body: some View {
             Form {
                 Section("New User Details") {
-                    
                     TextField("First Name", text: $firstName)
                     TextField("Last Name", text: $lastName)
                     TextField("Email", text: $email)
@@ -24,6 +24,7 @@ struct CreateUserView: View {
                 Section {
                     Button {
                         vm.createUser(firstName: firstName, lastName: lastName, email: email)
+                        isThisViewShown.toggle()
                     } label: {
                         Text("Create User")
                             .frame(maxWidth: .infinity)
@@ -37,6 +38,7 @@ struct CreateUserView: View {
 
 
 #Preview {
-    CreateUserView()
+    @Previewable @State var isPresent = false
+    CreateUserView(isThisViewShown: $isPresent)
         .environment(UsersVM())
 }
