@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct ToolbarModifiers: ViewModifier {
+    @Environment(UsersVM.self) var vm
 
-    @State var showCreateSheet: Bool = false
+    @State private var shouldRotate = false
+    @State private var showCreateSheet = false
 
     func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        print("Ordering...")
+                    Menu {
+                        Button {
+                            vm.orderByName()
+                            shouldRotate.toggle()
+                        } label: {
+                            Text("Order by name")
+                            Text("Asc / Desc")
+                        }
                     } label: {
-                        Text("Order")
+                        Image(systemName: "arrow.up.arrow.down")
+                            .symbolEffect(.rotate, value: shouldRotate)
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {

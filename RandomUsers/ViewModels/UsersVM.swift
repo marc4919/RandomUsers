@@ -17,6 +17,8 @@ final class UsersVM {
     
     var searchText = ""
     
+    var ascendingOrder: Bool = false
+    
     var usersFiltered: [User] {
         searchText.isEmpty
             ? users
@@ -38,5 +40,12 @@ final class UsersVM {
     func createUser(firstName: String, lastName: String, email: String){
         let newUser = User(email: email, firstName: firstName, lastName: lastName, avatar: nil)
         users.insert(newUser, at: 0)
+    }
+    
+    func orderByName() {
+        ascendingOrder.toggle()
+        users.sort {
+            ascendingOrder ? $0.firstName < $1.firstName : $0.firstName > $1.firstName
+        }
     }
 }
